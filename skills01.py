@@ -96,11 +96,6 @@ print join_strings(string_list)
 
 # Write a function that takes a list of integers and returns the average (without using the avg method)
 def average(numbers):
-    # avg = sum / num of items
-    # total = 0
-    # for i in numbers:
-    #     total += 1
-    # return total
     total = sum_numbers(numbers)
     for i in numbers:
         average = float(total) / float(len(numbers))
