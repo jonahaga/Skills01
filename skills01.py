@@ -1,6 +1,8 @@
+
 # Things you should be able to do.
 
-some_list = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+# some_list = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+some_list = ['A', 'Dog', 'One', 'Bike', 'Clipper', 'Projects', 'Obfuscation', 3, 5, 6, 8, 16]
 numbers = [5, 7, 2]
 word_list = ['Python', 'Dog', 'One', 'Bike', 'Clipper', 'Projects', 'Obfuscation']
 string_list = ['This', 'is', 'skills', '01' '.']
@@ -9,22 +11,23 @@ string_list = ['This', 'is', 'skills', '01' '.']
 def all_odd(some_list):
     odd = []
     for i in some_list:
-        if i % 2 != 0:
-            odd.append(i)
+        if type(i) is not str:
+            if i % 2 != 0:
+                odd.append(i)
     return odd
 
-print all_odd(some_list)
-
+print "All Odd:",all_odd(some_list)
 
 # Write a function that takes a list and returns a new list with only the even numbers.
 def all_even(some_list):
     even = []
     for i in some_list:
-        if i % 2 == 0:
-            even.append(i)
+        if type(i) is not str:
+            if i % 2 == 0:
+                even.append(i)
     return even
 
-print all_even(some_list)
+print "All Even:", all_even(some_list)
 
 # Write a function that takes a list of strings and a new list with all strings of length 4 or greater.
 def long_words(word_list):
@@ -34,29 +37,40 @@ def long_words(word_list):
             long_words.append(i)
     return long_words
 
-print long_words(word_list) 
+print "Long Words:", long_words(word_list) 
 
 # Write a function that finds the smallest element in a list of integers and returns it.
 def smallest(some_list):
-    return min(some_list)
+    smallest = None
+    for i in range(len(some_list)):
+        if type(some_list[i]) is not str:
+            if smallest == None or some_list[i] < smallest:
+                smallest = some_list[i]
+    return smallest
 
-print smallest(some_list)
+print "Smallest:", smallest(some_list)
 
 # Write a function that finds the largest element in a list of integers and returns it.
 def largest(some_list):
-    return max(some_list)
+    largest = None
+    for i in range(len(some_list)):
+        if type(some_list[i]) is not str:
+            if largest == None or some_list[i] > largest:
+                largest = some_list[i]
+    return largest
 
-print largest(some_list)
+print "Largest:", largest(some_list)
 
 # Write a function that takes a list of numbers and returns a new list of all those numbers divided by two.
 def halvesies(some_list):
     halvesies = []
     for i in some_list:
-        div = float(i) / 2.0
-        print div
+        if type(i) is not str:
+            div = float(i) / 2.0
+            halvesies.append(div)
     return halvesies
 
-print halvesies(some_list)
+print "Halvsies:", halvesies(some_list)
 
 # Write a function that takes a list of words and returns a list of all the lengths of those words.
 def word_lengths(word_list):
@@ -65,7 +79,7 @@ def word_lengths(word_list):
         length_list.append(len(i))
     return length_list
 
-print word_lengths(word_list)    
+print "World Lengths:", word_lengths(word_list)    
 
 # Write a function (using iteration) that sums all the numbers in a list.
 def sum_numbers(numbers):
@@ -74,7 +88,7 @@ def sum_numbers(numbers):
         total += i
     return total
 
-print sum_numbers(numbers)
+print "Sum Numbers:", sum_numbers(numbers)
 
 # Write a function that multiplies all the numbers in a list together.
 def mult_numbers(numbers):
@@ -83,7 +97,7 @@ def mult_numbers(numbers):
         mult = mult *i
     return mult 
 
-print mult_numbers(numbers) 
+print "Mult Numbers:", mult_numbers(numbers) 
 
 # Write a function that joins all the strings in a list together (without using the join method) and returns a single string.
 def join_strings(string_list):
@@ -92,7 +106,7 @@ def join_strings(string_list):
         single_string = single_string + i + " "
     return single_string
 
-print join_strings(string_list)
+print "Join Strings:", join_strings(string_list)
 
 # Write a function that takes a list of integers and returns the average (without using the avg method)
 def average(numbers):
@@ -101,4 +115,4 @@ def average(numbers):
         average = float(total) / float(len(numbers))
     return average
 
-print average(numbers)
+print "Average:", average(numbers)
